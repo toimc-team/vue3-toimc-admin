@@ -42,3 +42,13 @@
     transform: rotate(180deg);
   }
 }
+
+.el-rate__item {
+  @apply: "!flex";
+}
+
+.el-table__inner-wrapper {
+  &:before {
+    height: unset !important;
+  }
+}

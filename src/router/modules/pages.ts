@@ -4,76 +4,90 @@ import type { AppRouteRecordRaw } from '../types'
 const pagesRoutes: Array<AppRouteRecordRaw> = [
   {
     name: 'Pages',
-    path: '/pages',
-    component: LayoutsDefault,
-    redirect: '/pages/exception',
     meta: {
       title: '页面',
-      order: 50,
-      icon: 'DocumentCopy'
+      order: 40,
+      icon: 'CopyDocument'
     },
+    path: '/page',
+    component: LayoutsDefault,
+    redirect: '/pages/form',
     children: [
       {
-        name: 'ExceptionPages',
-        path: 'exceptions',
-        redirect: '/pages/exceptions/403',
-        component: () => import('@/views/pages/exception/index.vue'),
+        name: 'FormPages',
+        path: 'form',
+        component: () => import('@/views/pages/form/index.vue'),
         meta: {
-          title: '异常页'
+          title: '表单页'
         },
         children: [
           {
-            name: '403',
-            path: '403',
-            component: () => import('@/views/pages/exception/403.vue'),
+            name: 'DefaultFormPages',
+            path: 'default',
+            component: () => import('@/views/pages/form/default.vue'),
             meta: {
-              title: '403'
-            }
-          },
-          {
-            name: '404',
-            path: '404',
-            component: () => import('@/views/pages/exception/404.vue'),
-            meta: {
-              title: '404'
-            }
-          },
-          {
-            name: '500',
-            path: '500',
-            component: () => import('@/views/pages/exception/500.vue'),
-            meta: {
-              title: '500'
+              title: '默认表单页'
             }
           }
         ]
       },
       {
+        name: 'DetailPages',
+        path: 'detail',
+        component: () => import('@/views/pages/form/index.vue'),
+        meta: {
+          title: '详情页'
+        }
+      },
+      {
         name: 'ResultPages',
         path: 'result',
-        redirect: '/pages/result/success',
-        component: () => import('@/views/pages/result/index.vue'),
+        component: () => import('@/views/pages/form/index.vue'),
         meta: {
           title: '结果页'
+        }
+      },
+      {
+        name: 'UsersPages',
+        path: 'users',
+        component: () => import('@/views/pages/form/index.vue'),
+        meta: {
+          title: '个人页'
+        }
+      },
+      {
+        name: 'SettingsPages',
+        path: 'settings',
+        component: () => import('@/views/pages/form/index.vue'),
+        meta: {
+          title: '设置页'
+        }
+      },
+      {
+        name: 'ErrorsPages',
+        path: 'errors',
+        component: () => import('@/views/pages/errors/index.vue'),
+        meta: {
+          title: '异常页'
         },
         children: [
           {
-            name: 'success',
-            path: 'success',
-            component: () => import('@/views/pages/result/success.vue'),
+            name: 'Default404',
+            path: 'default',
+            component: () => import('@/views/pages/errors/default.vue'),
             meta: {
-              title: '成功页'
-            }
-          },
-          {
-            name: 'fail',
-            path: 'fail',
-            component: () => import('@/views/pages/result/fail.vue'),
-            meta: {
-              title: '失败页'
+              title: '默认异常页'
             }
           }
         ]
+      },
+      {
+        name: 'ListsPages',
+        path: 'lists',
+        component: () => import('@/views/pages/form/index.vue'),
+        meta: {
+          title: '列表页'
+        }
       }
     ]
   }

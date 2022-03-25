@@ -7,7 +7,20 @@
         <li>3.动态表单</li>
         <li>4.集成第三方组件：富文本，markdown编辑器，扩展性好</li>
       </ul>
-      <basic-form :schemas="formBasicSchema"></basic-form>
+      <basic-form :schemas="formBasicSchema">
+        <!-- <template #upload1-trigger>
+          <el-button type="primary">点击上传</el-button>
+        </template>-->
+        <template #upload1-trigger>
+          <el-button type="primary">点击上传</el-button>
+        </template>
+        <template #upload2-trigger>
+          <el-button type="primary">点击上传</el-button>
+        </template>
+        <template #upload2-tip>
+          <div class="el-upload__tip">jpg/png files with a size less than 500kb</div>
+        </template>
+      </basic-form>
     </el-card>
   </div>
 </template>
@@ -83,11 +96,105 @@
               value: 'test'
             }
           ]
+        },
+        {
+          component: 'checkbox-group',
+          value: ['1'],
+          prop: 'like',
+          label: '爱好',
+          rules: [],
+          attrs: {},
+          children: [
+            {
+              component: 'checkbox',
+              label: '足球',
+              value: '1',
+              attrs: {
+                disabled: true
+              }
+            },
+            {
+              component: 'checkbox',
+              label: '篮球',
+              value: '2'
+            },
+            {
+              component: 'checkbox',
+              label: '游泳',
+              value: '3'
+            }
+          ]
+        },
+        {
+          component: 'radio-group',
+          value: '2',
+          prop: 'gender',
+          label: '性别',
+          children: [
+            {
+              component: 'radio',
+              label: '男',
+              value: '1'
+            },
+            {
+              component: 'radio',
+              label: '女',
+              value: '2'
+            },
+            {
+              component: 'radio',
+              label: '未知',
+              value: '3'
+            }
+          ]
+        },
+        {
+          component: 'upload',
+          label: '图片',
+          prop: 'file',
+          // slotId
+          slot: 'upload1-',
+          upload: {
+            action: ''
+          }
+        },
+        {
+          component: 'upload',
+          label: '文档',
+          prop: 'file',
+          slot: 'upload2-',
+          upload: {
+            action: ''
+          }
+        },
+        {
+          component: 'upload',
+          label: '文档',
+          prop: 'file',
+          upload: {
+            type: 'button',
+            btnType: 'success',
+            text: '点击上传',
+            action: ''
+          }
+        },
+        {
+          component: 'upload',
+          label: '图标上传',
+          prop: 'file',
+          upload: {
+            action: '',
+            type: 'icon',
+            onChange: (file, list) => {
+              console.log(file, list)
+            }
+          }
         }
       ]
 
       return {
-        formBasicSchema
+        formBasicSchema,
+        radio: ref('6')
       }
     }
   })

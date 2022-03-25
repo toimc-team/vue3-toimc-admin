@@ -7,6 +7,8 @@ export function useNav(emit) {
 
   // 给树形菜单添加key
   function genMenuKeys(menus: Array<AppRouteRecordRaw>, level = '0') {
+    // 过滤隐藏菜单
+    menus = menus.filter((item) => !item.meta?.hideMenu)
     menus.forEach((item, index) => {
       const key = level.indexOf('-') !== -1 ? `${level}${index}` : index + ''
       item.meta = {

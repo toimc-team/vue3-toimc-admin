@@ -19,8 +19,9 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@element-plus/icons-vue": "^1.1.3",
+    "@element-plus/icons-vue": "^1.1.4",
     "@vueuse/core": "^8.1.2",
+    "axios": "^0.26.1",
     "copy-to-clipboard": "^3.3.1",
     "dayjs": "^1.11.0",
     "element-plus": "2",
@@ -35,7 +36,7 @@
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
-    "@iconify/json": "^2.1.17",
+    "@iconify/json": "^2.1.18",
     "@iconify/vue": "^3.2.0",
     "@types/lodash-es": "^4.17.6",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
@@ -67,12 +68,13 @@
     "stylelint-scss": "^4.2.0",
     "typescript": "^4.6.2",
     "unplugin-auto-import": "^0.6.6",
-    "unplugin-icons": "^0.13.4",
+    "unplugin-icons": "^0.14.0",
     "unplugin-vue-components": "^0.18.3",
     "vite": "^2.8.6",
     "vite-plugin-mock": "^2.9.6",
+    "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-windicss": "^1.8.3",
-    "vue-tsc": "^0.33.2",
+    "vue-tsc": "^0.33.5",
     "windicss": "^3.5.1"
   },
   "engines": {

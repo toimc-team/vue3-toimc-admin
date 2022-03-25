@@ -33,7 +33,7 @@ const componentsRoutes: Array<AppRouteRecordRaw> = [
           {
             name: 'IconifyIcons',
             path: 'element',
-            component: () => import('@/views/components/icon/Iconify.vue'),
+            component: () => import('@/views/components/icon/iconify.vue'),
             meta: {
               title: 'Iconify图标集'
             }
@@ -41,9 +41,17 @@ const componentsRoutes: Array<AppRouteRecordRaw> = [
           {
             name: 'IconPicker',
             path: 'element',
-            component: () => import('@/views/components/icon/Picker.vue'),
+            component: () => import('@/views/components/icon/picker.vue'),
             meta: {
               title: '图标选择器'
+            }
+          },
+          {
+            name: 'SvgIcons',
+            path: 'svgs',
+            component: () => import('@/views/components/icon/svg-icons.vue'),
+            meta: {
+              title: 'svg图标'
             }
           }
         ]
@@ -71,6 +79,41 @@ const componentsRoutes: Array<AppRouteRecordRaw> = [
             component: () => import('@/views/components/forms/use-form.vue'),
             meta: {
               title: 'useForm'
+            }
+          },
+          {
+            name: 'ComprehensiveFormJson',
+            path: 'comprehensive-json',
+            component: () => import('@/views/components/forms/comprehensive-json.vue'),
+            meta: {
+              title: '表单Schema写法'
+            }
+          },
+          {
+            name: 'ComprehensiveFormDom',
+            path: 'comprehensive-dom',
+            component: () => import('@/views/components/forms/comprehensive-dom.vue'),
+            meta: {
+              title: '表单DOM写法'
+            }
+          }
+        ]
+      },
+      {
+        name: 'Tables',
+        path: 'table',
+        meta: {
+          title: '表格'
+        },
+        component: () => import('@/views/components/table/index.vue'),
+        redirect: '/comp/table/basic',
+        children: [
+          {
+            name: 'BasicTable',
+            path: 'basic',
+            component: () => import('@/views/components/table/basic.vue'),
+            meta: {
+              title: '基础表格'
             }
           }
         ]

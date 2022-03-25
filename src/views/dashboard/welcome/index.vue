@@ -1,8 +1,5 @@
 <template>
-  <div>
-    123123
-    <!-- icon集成 -->
-  </div>
+  <div>dashboard</div>
 </template>
 
 <script lang="ts">

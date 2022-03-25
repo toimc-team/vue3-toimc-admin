@@ -11,7 +11,7 @@
       <!-- header -->
       <custom-header v-model:collapse="isCollapse"></custom-header>
       <!-- content -->
-      <el-scrollbar>
+      <el-scrollbar class="custom-scroll">
         <router-view></router-view>
       </el-scrollbar>
       <!-- footer -->
@@ -41,6 +41,12 @@
   .el-menu-vertical {
     .is-active {
       background-color: #0960bd !important;
+    }
+  }
+
+  :deep(.custom-scroll) {
+    .el-scrollbar__view {
+      height: 100%;
     }
   }
 </style>

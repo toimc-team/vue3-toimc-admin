@@ -9,6 +9,8 @@ import '@/assets/style/index.scss'
 
 // windicss setup
 import 'virtual:windi.css'
+// svg sprite setup
+import 'virtual:svg-icons-register'
 
 // 全局Element样式引入
 import 'element-plus/dist/index.css'

@@ -13,6 +13,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 // vitejs
 import { loadEnv } from 'vite'
@@ -81,6 +82,12 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       viteMockServe({
         mockPath: './mock',
         supportTs: true
+      }),
+      createSvgIconsPlugin({
+        // 指定需要缓存的图标文件夹
+        iconDirs: [path.resolve(process.cwd(), 'src/assets/svg')],
+        // 指定symbolId格式
+        symbolId: 'icon-[dir]-[name]'
       })
     ],
     json: {
