@@ -43,7 +43,7 @@
         </template>
       </t-input>
 
-      <el-upload v-else-if="item.component === 'upload'" v-bind="item.upload">
+      <el-upload v-else-if="item.component === 'upload'" v-bind="item?.upload">
         <slot :name="item.slot ? item.slot + 'trigger' : 'trigger'"></slot>
         <slot :name="item.slot ? item.slot + 'tip' : 'tip'"></slot>
         <slot :name="item.slot ? item.slot + 'file' : 'file'"></slot>

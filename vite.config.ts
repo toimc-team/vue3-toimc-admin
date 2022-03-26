@@ -1,6 +1,6 @@
 import type { UserConfig, ConfigEnv } from 'vite'
 
-import path from 'path'
+import { resolve } from 'path'
 // plugins
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -23,6 +23,10 @@ import { wrapperEnv } from './build/utils'
 import pkg from './package.json'
 import dayjs from 'dayjs'
 import { createProxy } from './build/proxy'
+
+function pathResolve(dir: string) {
+  return resolve(process.cwd(), '.', dir)
+}
 
 // 设置应用信息
 const { dependencies, devDependencies, name, version } = pkg
@@ -85,7 +89,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       }),
       createSvgIconsPlugin({
         // 指定需要缓存的图标文件夹
-        iconDirs: [path.resolve(process.cwd(), 'src/assets/svg')],
+        iconDirs: [pathResolve('src/assets/svg')],
         // 指定symbolId格式
         symbolId: 'icon-[dir]-[name]'
       })
@@ -98,8 +102,8 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     },
     resolve: {
       alias: {
-        '@': path.join(__dirname, '/src'),
-        types: path.join(__dirname, '/types'),
+        '@': pathResolve('src'),
+        types: pathResolve('types'),
         dayjs: 'dayjs/esm'
       }
     }

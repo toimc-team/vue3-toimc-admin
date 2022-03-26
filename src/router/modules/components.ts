@@ -165,6 +165,14 @@ const componentsRoutes: Array<AppRouteRecordRaw> = [
           title: '详情面板'
         },
         component: () => import('@/views/components/descriptions/index.vue')
+      },
+      {
+        name: 'TransitionsDemo',
+        path: 'transition',
+        meta: {
+          title: '过渡动画'
+        },
+        component: () => import('@/views/components/transitions/index.vue')
       }
     ]
   }

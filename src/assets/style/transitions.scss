@@ -1,0 +1,226 @@
+@import 'mixins.scss';
+
+.expand-transition {
+  @include transition-default();
+}
+
+.expand-x-transition {
+  @include transition-default();
+}
+
+.scale-transition {
+  @include transition-default();
+
+  &-enter-from,
+  &-leave,
+  &-leave-to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+.scale-rotate-transition {
+  @include transition-default();
+
+  &-enter-from,
+  &-leave,
+  &-leave-to {
+    opacity: 0;
+    transform: scale(0) rotate(-45deg);
+  }
+}
+
+.slide-y-transition {
+  @include transition-default();
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+}
+
+.slide-y-reverse-transition {
+  @include transition-default();
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+}
+
+.slide-x-transition {
+  @include transition-default();
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+}
+
+.slide-x-reverse-transition {
+  @include transition-default();
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+}
+
+.scroll-y-transition {
+  @include transition-default();
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+  }
+
+  &-enter-from {
+    transform: translateY(-15px);
+  }
+
+  &-leave-to {
+    transform: translateY(15px);
+  }
+}
+
+.scroll-y-reverse-transition {
+  @include transition-default();
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+  }
+
+  &-enter-from {
+    transform: translateY(15px);
+  }
+
+  &-leave-to {
+    transform: translateY(-15px);
+  }
+}
+
+.scroll-x-transition {
+  @include transition-default();
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+  }
+
+  &-enter-from {
+    transform: translateX(-15px);
+  }
+
+  &-leave-to {
+    transform: translateX(15px);
+  }
+}
+
+.scroll-x-reverse-transition {
+  @include transition-default();
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+  }
+
+  &-enter-from {
+    transform: translateX(15px);
+  }
+
+  &-leave-to {
+    transform: translateX(-15px);
+  }
+}
+
+// fade
+.fade-enter-active,
+.fade-leave-active,
+.fade-transition-enter-active,
+.fade-transition-leave-active {
+  transition: opacity 0.2s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to,
+.fade-transition-enter-from,
+.fade-transition-leave-to {
+  opacity: 0;
+}
+
+/* fade-slide */
+.fade-slide-leave-active,
+.fade-slide-enter-active {
+  transition: all 0.3s;
+}
+
+.fade-slide-enter-from {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+// ///////////////////////////////////////////////
+// Fade Bottom
+// ///////////////////////////////////////////////
+
+// Speed: 1x
+.fade-bottom-enter-active,
+.fade-bottom-leave-active {
+  transition: opacity 0.25s, transform 0.3s;
+}
+
+.fade-bottom-enter-from {
+  opacity: 0;
+  transform: translateY(-10%);
+}
+
+.fade-bottom-leave-to {
+  opacity: 0;
+  transform: translateY(10%);
+}
+
+// fade-scale
+.fade-scale-leave-active,
+.fade-scale-enter-active {
+  transition: all 0.28s;
+}
+
+.fade-scale-enter-from {
+  opacity: 0;
+  transform: scale(1.2);
+}
+
+.fade-scale-leave-to {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+// ///////////////////////////////////////////////
+// Fade Top
+// ///////////////////////////////////////////////
+
+// Speed: 1x
+.fade-top-enter-active,
+.fade-top-leave-active {
+  transition: opacity 0.2s, transform 0.25s;
+}
+
+.fade-top-enter-from {
+  opacity: 0;
+  transform: translateY(8%);
+}
+
+.fade-top-leave-to {
+  opacity: 0;
+  transform: translateY(-8%);
+}

@@ -1,7 +1,7 @@
 <template>
-  <transition mode="out-in" v-on="on">
+  <basic-transition mode="out-in" v-bind="$attrs" v-on="on">
     <slot></slot>
-  </transition>
+  </basic-transition>
 </template>
 <script lang="ts">
   import { defineComponent } from 'vue'
