@@ -78,6 +78,30 @@ const pagesRoutes: Array<AppRouteRecordRaw> = [
             meta: {
               title: '默认异常页'
             }
+          },
+          {
+            name: '403',
+            path: '403',
+            component: () => import('@/views/pages/errors/403.vue'),
+            meta: {
+              title: '403'
+            }
+          },
+          {
+            name: '404',
+            path: '404',
+            component: () => import('@/views/pages/errors/404.vue'),
+            meta: {
+              title: '404'
+            }
+          },
+          {
+            name: '500',
+            path: '500',
+            component: () => import('@/views/pages/errors/500.vue'),
+            meta: {
+              title: '500'
+            }
           }
         ]
       },
