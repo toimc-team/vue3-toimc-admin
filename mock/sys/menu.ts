@@ -213,5 +213,24 @@ export default [
       }  
       return resultError('没有权限，请联系管理员授权')
     }
+  },
+  {
+    url: `${baseUrl}/sys/permission/deleteBatch`, 
+    timeout: 1000,
+    method: 'delete', 
+    response: (request: requestParams) => {
+      const token = getRequestToken(request)
+      if (!token) {
+        return resultError('Invalid token!')
+      }
+      const checkUser = {
+        token: '12321',
+        userId: '1'
+      }
+      if (!checkUser) {
+        return resultError('Invalid user token!')
+      }  
+      return resultError('没有权限，请联系管理员授权')
+    }
   }
 ] as MockMethod[]

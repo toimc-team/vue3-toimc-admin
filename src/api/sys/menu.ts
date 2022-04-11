@@ -4,6 +4,7 @@ enum Api {
   save='/api/sys/permission/add',
   edit='/api/sys/permission/edit',
   delete = '/api/sys/permission/delete',
+  deleteBatch ='/api/sys/permission/deleteBatch' 
 }
 
 /**
@@ -66,3 +67,18 @@ export const deleteMenu = (params) => {
     })
    })  
 }
+/**
+ * 删除多项菜单
+ */
+export const deleteMenus = (data) => {
+  const headers = {
+      authorization: 'Bearer ' + localStorage.getItem('token')
+    }
+  return new Promise((resolve) => {
+     axios.delete(Api.deleteBatch, { data,headers}).then((res) => { 
+      resolve(res.data)
+    })
+   })  
+}
+
+
