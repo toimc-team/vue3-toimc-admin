@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4">
+  <div class="p-4 menuBox">
     <div class="flex">
       <el-button type="primary" icon="Plus" @click="addMenu"> 新增菜单</el-button>
       <el-dropdown
@@ -29,9 +29,11 @@ v-if="multipleSelection.length > 0" style="margin-left: 5px;" trigger="click"
         <span v-else>未选中任何数据</span>
       </p>
     </div>
+    <!-- :row-class-name="rowClassNameFun" -->
     <el-table
-ref="multipleTableRef" :data="tableData" border stripe style="width: 100%;" lazy row-key="id"
-      @select-all="handleSelectAll" @selection-change="handleSelectionChange">
+ref="multipleTableRef" :select-on-indeterminate="true" :header-row-class-name="rowClassNameFun"
+      :data="tableData" border stripe style="width: 100%;" lazy row-key="id" @select-all="handleSelectAll"
+      @selection-change="handleSelectionChange">
       <el-table-column type="selection" min-width="55" />
       <el-table-column property="name" label="菜单名称" min-width="200"> </el-table-column>
       <el-table-column property="菜单类型" label="菜单类型" min-width="150" align="center">
@@ -99,6 +101,8 @@ export default defineComponent({
     const multipleTableRef = ref<InstanceType<typeof ElTable>>()
     const multipleSelection = ref<Array<MenuItem>>([])
     const tableData = ref<Array<MenuItem>>([])
+    const allCheckId = ref<Array<number>>([]) 
+ 
 
     const handleCommand = (command: string | number | object) => {
       // ElMessage(`click on item ${command}`)
@@ -156,16 +160,43 @@ export default defineComponent({
 
       }
     }
+    enum CheckStatus {
+      unChecked = 0,
+      halfChecked = 1,
+      allChecked = 2
+    }
     let checkFlag = false;
+    let checkStatus = CheckStatus.unChecked
     // 全选\取消全选
     const handleSelectAll = () => {
       checkFlag = !checkFlag
       checkChildren(tableData.value, checkFlag)
 
     }
+    //选中监听
     const handleSelectionChange = (val: Array<MenuItem>) => {
       multipleSelection.value = val
+      checkStatus = checkOutUserAll()
     }
+
+
+    //判断是否全选所有的菜单
+    const checkOutUserAll = () => {
+      let userCheckIds = multipleSelection.value.map(item => item.id) 
+      let status = CheckStatus.unChecked
+      if (userCheckIds.length == 0) {
+        status = CheckStatus.unChecked
+      } else {
+        if (allCheckId.value.length == userCheckIds.length) {
+          status = CheckStatus.allChecked
+        } else {
+
+          status = CheckStatus.halfChecked
+        }
+      }
+      return status
+    }
+
     const checkChildren = (data, flag) => {
       data.forEach((row) => {
         // el-table里绑定的ref
@@ -177,6 +208,25 @@ export default defineComponent({
         }
       });
     }
+    //获取所有的菜单的id
+    const getAllMenuId = (data) => {
+      data.forEach((row) => {
+        allCheckId.value.push(row.id) 
+        let children = row.children
+        if (children != null) {
+          getAllMenuId(children);
+        }
+      });
+    } 
+    // 选中状态
+    const rowClassNameFun = () => { 
+      if (checkStatus == CheckStatus.halfChecked) {
+        return 'indeterminate';
+      }
+      return ''
+    }
+
+
 
 
 
@@ -212,8 +262,10 @@ export default defineComponent({
       // console.log("onMounted",http)
       getMenuList()
         .then((res: any) => {
-          tableData.value = res.result || []
-          data.menuALL = res.result || []
+          tableData.value = res.data || []
+          allCheckId.value = [];
+          getAllMenuId(tableData.value)
+          data.menuALL = res.data || []
         })
         .catch((err) => {
           console.log('err', err)
@@ -226,11 +278,12 @@ export default defineComponent({
     return {
       multipleSelection,
       tableData,
-      data, multipleTableRef,
+      data, multipleTableRef, checkStatus,
       addMenu,
       onConfirm,
       handleSelectAll,
       handleSelectionChange,
+      checkOutUserAll, rowClassNameFun,
       handleCommand,
       handleMoreCommand,
       handleEdit,
@@ -239,17 +292,61 @@ export default defineComponent({
   }
 })
 </script>
-<style lang="scss">.info {
-  padding: 5px;
-  margin: 10px auto;
-  color: #333;
-  background: #f1f1f1;
-}
+<style lang="scss" scoped>
+$color-primary: #409eff; 
+.menuBox {
+  :deep .indeterminate {
+    background: #f00; 
+     .el-checkbox__input {
+      .el-checkbox__inner {
+        background-color: $color-primary !important;
+        border-color: $color-primary !important;
+        color: #fff !important;
 
-span.iconify {
-  display: block;
-  width: 1em;
-  height: 1em;
-  background-color: #5551;
-  border-radius: 100%;
-}</style>
+        &::after {
+          border-color: #C0C4CC !important; 
+          background-color: #C0C4CC;
+          content: "";
+          position: absolute;
+          display: block;
+          background-color: #fff;
+          height: 2px;
+          transform: scale(0.5);
+          left: 0;
+          right: 0;
+          top: 5px;
+          width: auto !important;
+
+          // content: "";
+          // position: absolute;
+          // display: block;
+          // background-color: #fff;
+          // height: 2px;
+          // transform: scale(.5);
+          // left: 0;
+          // right: 0;
+          // top: 5px;
+        }
+      }
+    }
+  }
+
+
+  .info {
+    padding: 5px;
+    margin: 10px auto;
+    color: #333;
+    background: #f1f1f1;
+  }
+
+  span.iconify {
+    display: block;
+    width: 1em;
+    height: 1em;
+    background-color: #5551;
+    border-radius: 100%;
+  }
+
+
+}
+</style>
