@@ -1,0 +1,1 @@
+import{_ as o,e as r,o as t,g as n,r as s}from"./index.974e6f7f.js";const a=r({name:"FormLayuts",setup(){return{}}});function c(p,_,u,i,m,f){const e=s("router-view");return t(),n(e)}var l=o(a,[["render",c]]);export{l as default};
