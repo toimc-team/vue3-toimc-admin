@@ -1,1 +1,0 @@
-import{_ as r,o as t,c as n,b as s,F as a,a as e,r as c}from"./index.04914df2.js";const _={},l=e("div",null,"\u8FD9\u91CC\u662FMenu1",-1),u=e("div",null,"\u4E0B\u9762\u662Frouter-view",-1);function i(d,m){const o=c("router-view");return t(),n(a,null,[l,u,s(o)],64)}var f=r(_,[["render",i]]);export{f as default};
