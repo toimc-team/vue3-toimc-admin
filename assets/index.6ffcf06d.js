@@ -1,1 +1,0 @@
-import{_ as o,e as r,o as t,c as s,b as n,r as a}from"./index.7e888d57.js";const c=r({name:"ErrorsPages",setup(){return{}}}),_={class:"p-4 h-full w-full"};function p(i,l,u,d,f,m){const e=a("router-view");return t(),s("div",_,[n(e)])}var x=o(c,[["render",p]]);export{x as default};
