@@ -1,0 +1,1 @@
+import{_ as e,e as o,o as t,c as n}from"./index.4a10eb4a.js";const r=o({setup(){return{}}});function s(a,c,u,p,_,f){return t(),n("div",null,"\u8C37\u6B4C\u5730\u56FE")}var d=e(r,[["render",s]]);export{d as default};
