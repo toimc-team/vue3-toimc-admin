@@ -1,0 +1,1 @@
+import{_ as o,o as r,c as t,b as c,r as n}from"./index.cc2010c8.js";const s={},_={class:"p-4 h-full w-full"};function a(l,f){const e=n("router-view");return r(),t("div",_,[c(e)])}var d=o(s,[["render",a]]);export{d as default};

@@ -1,0 +1,1 @@
+import{_ as e,e as o,o as t,c as n}from"./index.cc2010c8.js";const r=o({setup(){return{}}});function s(a,c,p,u,_,f){return t(),n("div",null,"\u65E5\u5FD7")}var d=e(r,[["render",s]]);export{d as default};
