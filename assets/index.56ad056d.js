@@ -1,1 +1,0 @@
-import{_ as o,e as r,r as t,o as n,j as s}from"./index.dce36085.js";const a=r({name:"FormLayuts",setup(){return{}}});function c(p,_,u,i,m,f){const e=t("router-view");return n(),s(e)}var l=o(a,[["render",c]]);export{l as default};
