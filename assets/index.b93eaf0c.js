@@ -1,0 +1,1 @@
+import{_ as o,e as t,r as n,o as r,c as s,b as a}from"./index.d68dd7ac.js";const c=t({name:"TableLayuts",setup(){return{}}}),_={class:"p-4"};function p(i,d,u,m,f,l){const e=n("router-view");return r(),s("div",_,[a(e)])}var x=o(c,[["render",p]]);export{x as default};
