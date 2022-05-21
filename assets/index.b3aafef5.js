@@ -1,0 +1,1 @@
+import{_ as o,e as t,r as n,o as r,c as s,b as a}from"./index.f506b9ca.js";const c=t({name:"DetailPages",setup(){return{}}}),_={class:"p-4 h-full w-full"};function p(i,l,u,d,f,m){const e=n("router-view");return r(),s("div",_,[a(e)])}var x=o(c,[["render",p]]);export{x as default};

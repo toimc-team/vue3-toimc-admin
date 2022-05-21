@@ -1,1 +1,0 @@
-import{_ as r,r as t,o as n,c as s,b as a,I as c,a as e}from"./index.f395e6a2.js";const _={},l=e("div",null,"\u8FD9\u91CC\u662FMenu1",-1),u=e("div",null,"\u4E0B\u9762\u662Frouter-view",-1);function i(d,m){const o=t("router-view");return n(),s(c,null,[l,u,a(o)],64)}var f=r(_,[["render",i]]);export{f as default};
