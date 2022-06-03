@@ -1,0 +1,1 @@
+import{_ as o,e as r,r as t,o as n,j as s}from"./index.d62185ec.js";const a=r({setup(){return{}}});function c(p,_,u,f,i,m){const e=t("router-view");return n(),s(e)}var l=o(a,[["render",c]]);export{l as default};
