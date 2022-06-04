@@ -85,6 +85,9 @@
       "password-comp": {
         "title": "Password strength",
         "password": "StrengthMeter"
+      },
+      "web-socket": {
+        "title": "websocket"
       }
     },
     "pages": {

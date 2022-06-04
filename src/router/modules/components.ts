@@ -446,6 +446,14 @@ const componentsRoutes: Array<AppRouteRecordRaw> = [
             component: () => import('@/views/components/small-components/number.vue')
           }
         ]
+      },
+      {
+        name: 'SmallComp',
+        path: 'small-comp',
+        meta: {
+          title: t('menu.component.web-socket.title')
+        },
+        component: () => import('@/views/components/weboscket/index.vue')
       }
     ]
   }

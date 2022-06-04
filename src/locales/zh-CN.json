@@ -85,6 +85,9 @@
       "password-comp": {
         "title": "密码强度",
         "password": "密码强度"
+      },
+      "web-socket": {
+        "title": "websocket"
       }
     },
     "pages": {
