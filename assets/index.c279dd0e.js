@@ -1,1 +1,0 @@
-import{bR as u,bS as s}from"./index.58bcf13a.js";var c={beforeMount(n,t){let e=null,a;const l=()=>t.value&&t.value(),o=()=>{Date.now()-a<100&&l(),clearInterval(e),e=null};u(n,"mousedown",r=>{r.button===0&&(a=Date.now(),s(document,"mouseup",o),clearInterval(e),e=setInterval(l,100))})}};export{c as v};

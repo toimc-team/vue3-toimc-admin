@@ -1,0 +1,1 @@
+import{_ as n,c as t,b as r,a as e,r as c,o as s}from"./index.6b8e7d20.js";const _={},a=e("div",null,"menu1-1",-1),u=e("div",null,"\u4E0B\u9762\u662F\u8DEF\u7531menu1-1\u7684\u5B50\u8DEF\u7531\uFF1Arouter-view",-1);function i(l,d){const o=c("router-view");return s(),t("div",null,[a,u,r(o)])}const v=n(_,[["render",i]]);export{v as default};

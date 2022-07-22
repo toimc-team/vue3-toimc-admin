@@ -1,0 +1,1 @@
+import{_ as t,c as n,b as r,J as s,a as e,r as c,o as a}from"./index.6b8e7d20.js";const _={},l=e("div",null,"\u8FD9\u91CC\u662FMenu1",-1),u=e("div",null,"\u4E0B\u9762\u662Frouter-view",-1);function i(d,m){const o=c("router-view");return a(),n(s,null,[l,u,r(o)],64)}const p=t(_,[["render",i]]);export{p as default};
