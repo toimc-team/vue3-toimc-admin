@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 enum Api {
   upload = '/api/sys/common/upload'
 }

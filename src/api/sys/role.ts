@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 enum Api {
   roleQueryTreeList = '/api/sys/role/queryTreeList',
   list = '/api/sys/role/list',
@@ -24,6 +25,7 @@ export const queryRoleTreeList = () => {
     })
   })
 }
+
 /**
  * 根据角色ID查询角色权限
  **/

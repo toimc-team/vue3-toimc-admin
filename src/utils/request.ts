@@ -1,7 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
 import { ElMessage } from 'element-plus'
-import { loadEnv } from 'vite'
-import { wrapperEnv } from '../../build/utils'
 
 // 接口类型和方法
 interface BaseType {
@@ -42,17 +40,8 @@ class AxiosHttpRequest implements BaseType {
   baseURL: string
   timeout: number
   constructor() {
-    const root = process.cwd()
-    const mode = import.meta.env.MODE
-    const env = loadEnv(mode, root)
-    // loadEnv读取的布尔类型是一个字符串。这个函数可以转换为布尔类型
-    const viteEnv = wrapperEnv(env)
-    console.log('viteEnv:', viteEnv)
-
-    const { VITE_PROXY } = viteEnv
-    this.baseURL = VITE_PROXY[0][0]
+    this.baseURL = import.meta.env.VITE_GLOB_API_URL
     this.timeout = 1500
-    console.log('this.baseURL', this.baseURL)
   }
   // 配置参数
   getConfigParams() {
